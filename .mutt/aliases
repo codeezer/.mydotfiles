@@ -1,4 +1,10 @@
-alias sagar shrestha.sg57@gmail.com (Sagar Shrestha)
-alias sandy sandeepsthapit@gmail.com (Sandeep Sthapit)
-alias rasana rasanamanandhar@gmail.com (Rasana Manandhar)
+#This is place where we place aliases 
+#We can place these aliases on muttrc 
+#but it seems quite clear here 
 
+#Sample aliases
+
+alias leo leonardo_see@gmail.com (Leonardo Saints)
+#   *nickname *email *(real_name)
+
+#add more :) 
