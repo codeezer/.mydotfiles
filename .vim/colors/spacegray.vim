@@ -4,6 +4,7 @@
 " A colorscheme loosely modeled after the spacegray theme for Xcode.
 " This colorscheme is 256color and up only.
 
+
 " Setup {{{1
 hi clear
 
