@@ -8,13 +8,15 @@ Feel free to share yours too :)
 
 ##For VIM Editor
 To use colorscheme I used you  should use terminal colorscheme to support clean color.
-
 See more details at http://ethanschoonover.com/solarized
 
 
 If you use gnome-terminal or  guake terminal,
-
 Follow this link : http://www.webupd8.org/2011/04/solarized-must-have-color-paletter-for.html
 
 
-Enjoy .dot !!!
+#For Configuration
+Just clone this repo to home directory and make sure all .dot files are on home directory
+or you can manually download these files and directories and place it to your home directory
+
+Thank You .... Enjoy .dot !!!
