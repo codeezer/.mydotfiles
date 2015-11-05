@@ -1,38 +1,46 @@
 # A basic .muttrc for use with Gmail
 source $MAILCONF~/.mutt/mutt-colors-solarized-master/mutt-colors-solarized-dark-16.muttrc
 # Change the following six lines to match your Gmail account details
-set imap_user = "ezerames@gmail.com"
-set imap_pass = "youtubeezer"
-set smtp_url = "smtp://ezerames@smtp.gmail.com:587/"
-set smtp_pass = "youtubeezer"
-set from = "ezerames@gmail.com"
-set realname = "Ramesh Neupane"
+set imap_user = "USERNAME@gmail.com"
+set imap_pass = "PASSWORD"
+set smtp_url = "smtp://USERNAME@smtp.gmail.com:587/"
+set smtp_pass = "PASSWORD"
+set from = "USERNAME@gmail.com"
+set realname = "FNAME LNAME"
 
-# Change the following line to a different editor you prefer.
-set editor = "vim"
+set editor = "vim '+:7'" # vim for editing, and move marker to line 7
+
 
 # Basic config, you can leave this as is
 set folder = "imaps://imap.gmail.com:993"
 set spoolfile = "+INBOX"
 set imap_check_subscribed
 set hostname = gmail.com
-set mail_check = 120
-set timeout = 300
+set mail_check = 60
+set timeout = 15
 set imap_keepalive = 300
+
+set edit_hdrs # see headers when editing mail
+set reply_to # use adress from reply-to header when replying
+set fast_reply # do not ask for to, sbuject,.. when replying
+set delete_untag # untag msgs when marking them for deletion
+set mark_old = no # don't differentiate between new and old
+
+
 set postponed = "+[GMail]/Drafts"
 set record = "+[GMail]/Sent Mail"
 set header_cache=~/.mutt/cache/headers
 set message_cachedir=~/.mutt/cache/bodies
 set certificate_file=~/.mutt/certificates
 set move = no
-set include
+set include #quote msg when replying
 set sort = 'threads'
 set sort_aux = 'reverse-last-date-received'
-set auto_tag = yes
+set auto_tag = yes  # if something is tagged run commands on all tagged msgs
 ignore "Authentication-Results:"
 ignore "DomainKey-Signature:"
 ignore "DKIM-Signature:"
-hdr_order Date From To Cc
+#hdr_order Date From To Cc
 alternative_order text/plain text/html *
 auto_view text/html
 #bind editor complete-query
@@ -41,13 +49,46 @@ auto_view text/html
 
 # Gmail-style keyboard shortcuts
 macro index,pager y "unset trash\n " "Gmail archive message"
-macro index,pager d "set trash=\"imaps://imap.googlemail.com/[GMail]/Bin\"\n " "Gmail delete message"
+
 macro index,pager gi "=INBOX" "Go to inbox"
-macro index,pager ga "=[Gmail]/All Mail" "Go to all mail"
-macro index,pager gs "=[Gmail]/Starred" "Go to starred messages"
-macro index,pager gd "=[Gmail]/Drafts" "Go to drafts"
+
+folder-hook . 'macro pager d "<exit><delete-message>" "Delete the message"'
+
+macro index gd "<change-folder> =[Gmail]/Drafts<enter>" "Go to drafts"
+macro index gt "<change-folder> =[Gmail]/Trash<enter>" "Go to trash"
+macro index gs "<change-folder> =[Gmail]/Starred<enter>" "Go to starred messages"
+# Doesnt work cause of spaces :(
+macro index ga "<change-folder> ='[Gmail]/All Mail'<enter>" "Go to all mail"
+macro index gi "<change-folder> ='[Gmail]/Inbox<enter>" "Go to inbox"
+
 
 set alias_file=~/.mutt/aliases
 set sort_alias= alias
 set reverse_alias=yes
 source $alias_file 
+
+
+
+
+set forward_format="Fwd: %s"
+
+# In what order should the header fields be presented?
+hdr_order From: Date: To: Cc: Reply-To: Subject:
+ignore *
+unignore From: Date: To: Cc: Reply-To: Subject:
+
+# Add these header fields to every message
+my_hdr Reply-To:
+
+set tilde # pad bottom blank lines when in page view
+set pager_index_lines=9 # 9 index mail lines on top when in page view
+
+# Gmail have the notion of labels
+# If a message has several labels, we actually need to move it to the
+# trash to remove all labels (delete from all folders)
+# This one requires mutt with the trash patch
+set trash = "=[Gmail]/Trash"
+
+# Take me back to the index before deleting when in page view
+folder-hook . 'macro pager d "<exit><delete-message>" "Delete the message"'
+
