@@ -8,10 +8,12 @@ Feel free to share yours too :)
 
 ##For VIM Editor
 To use colorscheme I used you  should use terminal colorscheme to support clean color.
+
 See more details at http://ethanschoonover.com/solarized
 
 
-If you use gnome-terminal or  guake terminal 
+If you use gnome-terminal or  guake terminal,
+
 Follow this link : http://www.webupd8.org/2011/04/solarized-must-have-color-paletter-for.html
 
 
