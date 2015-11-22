@@ -20,3 +20,6 @@ Just clone this repo to home directory and make sure all .dot files are on home 
 or you can manually download these files and directories and place it to your home directory
 
 Thank You .... Enjoy .dot !!!
+
+P.S. : Please download #urlscan and #urlview for mutt shortcuts for link browser
+
