@@ -9,6 +9,9 @@ set from = "USERNAME@gmail.com"
 set realname = "FNAME LNAME"
 
 set editor = "vim '+:7'" # vim for editing, and move marker to line 7
+macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+macro pager \ca 'urlview' 'Follow links with urlview'
 
 
 # Basic config, you can leave this as is
