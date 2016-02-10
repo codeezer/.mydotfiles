@@ -1,0 +1,273 @@
+# i3blocks config file
+#
+# Please see man i3blocks for a complete reference!
+# The man page is also hosted at http://vivien.github.io/i3blocks
+#
+# List of valid properties:
+#
+# align
+# color
+# command
+# full_text
+# instance
+# interval
+# label
+# min_width
+# name
+# separator
+# separator_block_width
+# short_text
+# signal
+# urgent
+
+# Global properties
+separator_block_width=14
+command=/home/ezer/.config/i3blocks/scripts/$BLOCK_NAME
+markup=none
+
+#[window]
+#command=/home/ezer/.config/i3blocks/scripts/scroll $BLOCK_NAME
+#label=
+#markup=pango
+#interval=repeat
+
+[weather]
+full_text=☂ฺ ☀ฺ Weather ☂ฺ ☀ฺ
+command=/home/ezer/.config/i3blocks/scripts/iconweather.sh "ASI|NP|NP000|KATHMANDU"
+interval=1800
+color=#d11793
+separator=true
+
+
+#[clmus]
+#command=/home/ezer/.config/i3blocks/scripts/scroll $BLOCK_NAME
+#label=
+#markup=pango
+#interval=repeat
+
+
+
+[space]
+label=
+interval=30
+
+
+[cpu]
+label=
+interval=2
+
+#[usb]
+#instance=PhotoSmart
+#label=
+#interval=10
+
+[trash]
+label=
+interval=10
+
+[mail]
+label= 
+interval=100
+color=#7F00FF 
+
+[ip-address]
+label=
+interval=1
+
+[bandwidth]
+command=/home/ezer/.config/i3blocks/scripts/bandwidth rx
+label=
+interval=1
+
+#[bandwidth]
+#instance=wlp3s0;out
+#label=
+#interval=1
+
+#[wireless]
+#label= 
+#instance=wlan0
+#command=echo "$(/sbin/iw dev wlan0 link | grep SSID | cut -d " " -f 2-)"
+#interval=1
+
+#[wireless1]
+#command=echo "$(/sbin/iw dev wlan1 link | grep SSID | cut -d " " -f 2-)"
+#interval=1
+
+#[bandwidth-dl]
+#command=$HOME/.config/i3blocks/scripts/bandwidth.sh rx
+#interval=1
+
+#[bandwidth-up]
+#command=$HOME/.config/i3blocks/scripts/bandwidth.sh tx
+#interval=1
+
+
+[battery]
+label=BAT
+markup=pango
+interval=2
+
+[date]
+label= 
+interval=once
+
+[nepali]
+interval=once
+
+[time]
+label= 
+interval=10
+
+[volume]
+label=
+instance=Master
+interval=1
+signal=10
+
+
+
+
+
+
+#[bluetooth]
+#label=
+#interval=10
+
+#[brightness]
+#label=
+#interval=5
+
+#[countdown]
+#instance=tomorrow 05:00:00
+#label=
+#interval=1
+
+# Part 3
+
+#[display]
+#label=
+#interval=5
+
+# Part 4
+#[feed]
+#instance=http://goo.gl/bR2hcp
+#label=
+#interval=60
+
+#[firewall]
+#label=
+#interval=10
+
+
+# Part 5
+
+[keystate]
+label=
+instance=caps
+interval=1
+
+[keystate]
+label=
+instance=num
+interval=1
+
+#[launcher]
+#label=
+#interval=once
+
+#[load]
+#label=
+#interval=10
+
+# Part 6
+
+#[locale]
+#label=
+#interval=once
+
+#[mail]
+#label=
+#instance=~/.gmx-private
+#interval=60
+
+#[memory]
+#label=
+#instance=mem;free
+#interval=30
+
+#[memory]
+#label=
+#instance=swap;total
+#interval=30
+
+# Part 7
+
+#[microphone]
+#label=
+#interval=5
+
+#[network]
+#label=
+#instance=enp4s0f2
+#interval=10
+
+#[network]
+#label=
+#instance=wlp3s0
+#interval=10
+
+#[packages]
+#label=
+#interval=300
+
+# Part 8
+
+#[playerctl]
+#label=
+#instance=rhythmbox
+#interval=5
+
+#[process]
+#instance=http
+#label=
+#interval=10
+
+
+#[space]
+#label=
+#instance=/pub
+#interval=30
+
+# Part 9
+
+#[ssid]
+#label=
+#interval=60
+
+#[temperature]
+#instance=Core
+#label=
+#interval=5
+
+#[user]
+#label=
+#interval=once
+
+# Part 10
+
+#[vpn]
+#label=
+#interval=5
+
+#[weather]
+#instance=2910831
+#interval=60
+
+#[webcam]
+#label=
+#interval=5
+
+
+
+

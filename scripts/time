@@ -1,0 +1,5 @@
+#!/bin/sh
+
+date '+%H:%M'
+echo ''
+echo '#50C878'

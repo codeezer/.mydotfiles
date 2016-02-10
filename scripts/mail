@@ -1,0 +1,17 @@
+#!/bin/sh
+
+USER='ezerames@gmail.com'
+PASS='youtubeezer'
+ 
+COUNT=`curl -su $USER:$PASS https://mail.google.com/mail/feed/atom || echo "<fullcount>"E"</fullcount>"`
+COUNT=`echo "$COUNT" | grep -oPm1 "(?<=<fullcount>)[^<]+" `
+echo $COUNT
+
+# Left click                                                             
+if [[ "${BLOCK_BUTTON}" -eq 1 ]]; then
+  exec thunderbird
+# Right click
+elif [[ "${BLOCK_BUTTON}" -eq 3 ]]; then
+  exec thunderbird
+fi
+

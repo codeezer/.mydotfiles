@@ -1,0 +1,7 @@
+title=$(qdbus org.mpris.clementine /Player org.freedesktop.MediaPlayer.GetMetadata | grep -Po '(?<=title: )[^\n]*')
+
+echo -n $title
+
+artist=$(qdbus org.mpris.clementine /Player org.freedesktop.MediaPlayer.GetMetadata | grep -Po '(?<=artist: )[^\n]*')
+
+echo -n " - "$artist
