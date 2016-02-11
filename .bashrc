@@ -84,9 +84,9 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias ll='ls -lF'
+alias l='ls -lF'
 alias la='ls -A'
-alias l='ls -lFA'
+alias ll='ls -lFA'
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -117,6 +117,13 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias test='ping www.google.com'
+alias connect='python3 ~/Documents/git/innet/netconnect.py'
+alias livescore='python3 ~/Documents/git/livescore-cli/livescore.py'
+alias loadshedding='python3 ~/Documents/git/mainbatti-talika/mainbatti-talika.py'
+alias d='du -hs'
+alias ccp='rsync -vrltD --stats --human-readable --info=progress2'
+alias wd='cd ~/Documents/mytest/'
+alias lo='python3 /home/ezer/Documents/git/loadshedding-cli/loadshedding.py'
 #***********************************************************************
 
 
@@ -128,6 +135,7 @@ extract ()
        case $1 in
            *.tar.bz2)   tar xvjf $1    ;;
            *.tar.gz)    tar xvzf $1    ;;
+           *.tar.xz)    tar xvf $1     ;;
            *.bz2)       bunzip2 $1     ;;
            *.rar)       unrar x $1     ;;
            *.gz)        gunzip $1      ;;
@@ -168,14 +176,5 @@ netinfo ()
 
 #----------------------------------PS1----------------------------------
 PS1="\$(if [[ \$? == 0 ]]; then echo \"\[\033[01;32m\]\342\234\223\"; else echo \"\[\033[01;31m\]\342\234\227\"; fi) $(if [[ ${EUID} == 0 ]]; then echo '\[\033[01;31m\]\h'; else echo '\[\033[01;32m\]\u@\h'; fi)\[\033[0;36m\]:\w\$\[\033[00m\] "
-LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
+LS_COLORS=$LS_COLORS:'di=1;33:' ; export LS_COLORS
 #***********************************************************************
-
-
-export PATH=$PATH:/bin/
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
