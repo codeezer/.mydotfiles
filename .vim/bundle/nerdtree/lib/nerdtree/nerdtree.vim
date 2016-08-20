@@ -14,7 +14,7 @@ function! s:NERDTree.changeRoot(node)
         let self.root = a:node
     else
         call a:node.cacheParent()
-        let self.root = self.parent
+        let self.root = a:node.parent
     endif
 
     call self.root.open()
@@ -101,7 +101,12 @@ endfunction
 " Function: s:NERDTree.ExistsForTab()   {{{1
 " Returns 1 if a nerd tree root exists in the current tab
 function! s:NERDTree.ExistsForTab()
-    return exists("t:NERDTreeBufName")
+    if !exists("t:NERDTreeBufName")
+        return
+    end
+
+    "check b:NERDTree is still there and hasn't been e.g. :bdeleted
+    return !empty(getbufvar(bufnr(t:NERDTreeBufName), 'NERDTree'))
 endfunction
 
 function! s:NERDTree.ForCurrentBuf()
@@ -112,14 +117,29 @@ function! s:NERDTree.ForCurrentBuf()
     endif
 endfunction
 
+"FUNCTION: s:NERDTree.ForCurrentTab() {{{1
+function! s:NERDTree.ForCurrentTab()
+    if !s:NERDTree.ExistsForTab()
+        return
+    endif
+
+    let bufnr = bufnr(t:NERDTreeBufName)
+    return getbufvar(bufnr, "NERDTree")
+endfunction
+
+"FUNCTION: s:NERDTree.getRoot() {{{1
+function! s:NERDTree.getRoot()
+    return self.root
+endfunction
+
 "FUNCTION: s:NERDTree.GetWinNum() {{{1
 "gets the nerd tree window number for this tab
 function! s:NERDTree.GetWinNum()
     if exists("t:NERDTreeBufName")
         return bufwinnr(t:NERDTreeBufName)
-    else
-        return -1
     endif
+
+    return -1
 endfunction
 
 "FUNCTION: s:NERDTree.IsOpen() {{{1
@@ -148,7 +168,7 @@ endfunction
 function! s:NERDTree.New(path, type)
     let newObj = copy(self)
     let newObj.ui = g:NERDTreeUI.New(newObj)
-    let newObj.root = g:NERDTreeDirNode.New(a:path)
+    let newObj.root = g:NERDTreeDirNode.New(a:path, newObj)
     let newObj._type = a:type
     return newObj
 endfunction
