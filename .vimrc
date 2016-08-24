@@ -1,5 +1,5 @@
 
-"------------------------------------Vundle--------------------------------------
+"------------------------------------Vundle-----------------------------------
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -55,11 +55,9 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
-"--------------------------------------------------------------------------------
+"-----------------------------------------------------------------------------
 
-
-
-"---------------------------------NERDTree---------------------------------------
+"---------------------------------NERDTree------------------------------------
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
@@ -91,9 +89,9 @@ call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
 :map <C-A> :NERDTreeFind <CR>
 
 
-"--------------------------------------------------------------------------------
+"-----------------------------------------------------------------------------
 
-"---------------------------------vim-airline------------------------------------
+"---------------------------------vim-airline---------------------------------
 let g:airline#extensions#tabline#enabled = 1
 
 set guifont=Liberation\ Mono\ for\ Powerline\ 10 
@@ -131,27 +129,14 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 set noshowmode
 
-"--------------------------------------------------------------------------------
-
-
-"------------------------------color-scheme--------------------------------------
-
-call togglebg#map("<F5>")
-let g:solarized_termcolors=256
-
-if has('gui_running')
-    set background=light
-else
-    set background=dark
-endif
-colorscheme solarized
-
-"---------------------------------------------------------------------------------
+"-----------------------------------------------------------------------------
 
 
 
 
-"-----------------------------------------set----------------------------------
+
+
+"-----------------------------------------set---------------------------------
 if !&scrolloff
     set scrolloff=4       " Show next 3 lines while scrolling.
 endif
@@ -170,10 +155,24 @@ set incsearch
 set cursorline
 set ruler
 
-"---------------------------------------------------------------------------------
+"-----------------------------------------------------------------------------
 
 map <C-J> :bnext<CR>
 map <C-K> :bprev<CR>
 :nnoremap <Space> :set hlsearch! hlsearch?<CR>
 nmap <C-T> :TagbarToggle<CR>
 set pastetoggle=<F2>
+
+"------------------------------color-scheme-----------------------------------
+
+call togglebg#map("<F5>")
+let g:solarized_termcolors=256
+
+if has('gui_running')
+    set background=light
+else
+    set background=dark
+endif
+colorscheme solarized
+
+"-----------------------------------------------------------------------------
