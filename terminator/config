@@ -1,0 +1,22 @@
+[global_config]
+  title_transmit_bg_color = "#252e32"
+[keybindings]
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_color = "#252e32"
+    background_darkness = 0.9
+    background_image = None
+    background_type = transparent
+    font = Ubuntu Mono derivative Powerline 14
+    foreground_color = "#94a3a5"
+    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#ec0048:#2aa198:#94a3a5:#586e75:#cb4b16:#859900:#b58900:#268bd2:#d33682:#2aa198:#6c71c4"
+    use_system_font = False
