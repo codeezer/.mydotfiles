@@ -6,6 +6,8 @@ It also contains the bashrc file i edited for easy terminal shell .
 Also , I like mutt as my mail client .So,I've included muttrc file too.
 Feel free to share yours too :) 
 
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
 ##For VIM Editor
 To use colorscheme I used you  should use terminal colorscheme to support clean color.
 See more details at http://ethanschoonover.com/solarized

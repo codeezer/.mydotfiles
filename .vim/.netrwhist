@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/home/ezer/Documents/git/.mydotfiles/.vim'
-let g:netrw_dirhist_2='/home/ezer/Documents/git/.mydotfiles/.vim/bundle'
-let g:netrw_dirhist_3='/home/ezer/Documents/git/.mydotfiles/.vim/bundle/vim-airline'
-let g:netrw_dirhist_4='/home/ezer/Documents/git/.mydotfiles/.vim/bundle'
-let g:netrw_dirhist_5='/home/ezer/Documents/git/.mydotfiles/.vim/bundle/vim-airline-themes'
